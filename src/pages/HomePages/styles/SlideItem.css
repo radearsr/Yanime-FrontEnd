@@ -1,0 +1,72 @@
+.slide-item {
+  height: 35vh;
+  align-items: center;
+  background-size: cover;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: opacity(1);
+}
+
+.slide-item::after {
+  content: "";
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.slide-item .poster img {
+  border-radius: 0.5rem;
+}
+
+.slide-item .details .title-detail {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--space);
+}
+
+.slide-item .details .description-detail {
+  font-size: 0.8rem;
+  color: var(--space);
+}
+
+.description-detail ~ .btn-watch {
+  background-color: var(--orange);
+  color: var(--space);
+}
+
+@media (min-width: 768px) {
+  .slide-item .poster {
+    width: 15%;
+    margin-right: 1rem;
+  }
+
+  .slide-item .details .title-detail {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .slide-item .details .description-detail {
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .slide-item {
+    height: 65vh;
+  }
+
+  .slide-item .details .title-detail {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+  }
+
+  .slide-item .details .description-detail {
+    font-size: 1rem;
+  }
+}

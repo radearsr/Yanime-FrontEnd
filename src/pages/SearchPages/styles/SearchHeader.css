@@ -1,0 +1,17 @@
+.search-header.row {
+  display: flex;
+}
+
+.logo-brand {
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: var(--space);
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+@media (min-width: 992px) {
+  .search-header.row {
+    display: none;
+  }
+}

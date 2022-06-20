@@ -1,0 +1,64 @@
+.logo-brand {
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: var(--space);
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.search-group {
+  border-radius: 1.4rem;
+}
+
+.search-group .input-search {
+  display: inline-block;
+  border: none;
+  outline: none;
+  width: 100%;
+  border-radius: 1.4rem 0 0 1.4rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+  height: 100%;
+  border: 1px solid rgb(238, 238, 238);
+  background-color: var(--space);
+  color: var(--black);
+  caret-color: var(--black);
+}
+
+.search-group .btn-action {
+  display: inline-block;
+  width: 100%;
+  border-radius: 0 1.4rem 1.4rem 0;
+  height: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgb(238, 238, 238);
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  opacity: 1;
+  outline: none;
+  border: 1px solid rgb(238, 238, 238);
+}
+
+@media (min-width: 992px) {
+  .search-group .input-search {
+    background-color: transparent;
+    color: var(--space);
+    caret-color: var(--space);
+  }
+  .search-group .input-search.scrolled {
+    background-color: var(--space);
+    color: var(--black);
+    caret-color: var(--black);
+  }
+
+  .search-group .input-search::placeholder {
+    color: var(--space);
+  }
+  .search-group .input-search.scrolled::placeholder {
+    color: var(--black);
+    opacity: 0.5;
+  }
+}
