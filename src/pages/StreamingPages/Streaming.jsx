@@ -2,11 +2,15 @@ import React, { Fragment } from "react";
 // import videojs from "video.js";
 // import VideoJS from "./VideoJS";
 import ReactPlayer from "react-player";
+import { useParams } from "react-router";
 import { Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 import "./styles/Streaming.css";
+import { useEffect } from "react";
 
 const Streaming = () => {
+  const { videoTitle } = useParams();
+  console.log("sss");
   return (
     <Fragment>
       <Row>
@@ -26,8 +30,8 @@ const Streaming = () => {
             <ReactPlayer
               width={"100%"}
               height={"100%"}
-              url={"http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"}
-              playing={true}
+              url={`http://localhost:5000/video/${videoTitle}`}
+              controls={true}
             />
           </div>
           <div className="button-area">

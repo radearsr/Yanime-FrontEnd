@@ -14,7 +14,7 @@ const App = () => {
       <Route path="/search" element={<Search />} />
       <Route path="/history" element={<History />} />
       <Route path="/info" element={<Info />} />
-      <Route path="/streaming" element={<Streaming />} />
+      <Route path="/streaming/:videoTitle" element={<Streaming />} />
     </Routes>
   );
 };
