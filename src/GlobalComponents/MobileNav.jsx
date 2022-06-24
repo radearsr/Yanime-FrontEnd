@@ -18,7 +18,7 @@ const MobileNav = () => {
           xs={3}
           className={`mob-nav-item ${splitLocation[1] === "" ? "active" : ""}`}
         >
-          <a href="/" className="mob-link" activeClassName="">
+          <a href="/" className="mob-link" activeclass="">
             <span className="icon icon-nav home"></span>
             <span>Home</span>
           </a>

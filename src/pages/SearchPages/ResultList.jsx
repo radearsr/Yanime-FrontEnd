@@ -9,7 +9,7 @@ const ResultList = () => {
     <Container className="content-list" fluid="lg">
       <ResultItem
         srcImg="/assets/images/poster1.jpg"
-        title="Lorem ipsum dolor red ipsum"
+        title="Tantei Wa Mou Shindeiru"
         description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur corrupti sit doloremque cum officiis facere magni dolore error quaerat neque."
         episodeCount="12"
       />

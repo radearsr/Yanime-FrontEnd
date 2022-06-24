@@ -10,7 +10,7 @@ import { useEffect } from "react";
 
 const Streaming = () => {
   const { videoTitle } = useParams();
-  console.log("sss");
+  console.log(`http://192.168.8.102:5000/video/${videoTitle}`);
   return (
     <Fragment>
       <Row>
@@ -30,7 +30,7 @@ const Streaming = () => {
             <ReactPlayer
               width={"100%"}
               height={"100%"}
-              url={`http://localhost:5000/video/${videoTitle}`}
+              url={`http://192.168.8.102:5000/video/${videoTitle}`}
               controls={true}
             />
           </div>
