@@ -4,13 +4,11 @@ import { useParams } from "react-router";
 import { Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 import "./styles/Streaming.css";
-import { getDetailAnime } from "../../api/Functions";
+import { BASE_URL, getDetailAnime } from "../../api/Functions";
 
 const Streaming = () => {
   const { videoTitle } = useParams();
   const [animes, setAnimes] = useState([]);
-
-  const videoEndpoint = "http://localhost:5000";
 
   useEffect(() => {
     getDetailAnime(setAnimes, videoTitle);
@@ -37,7 +35,7 @@ const Streaming = () => {
               <ReactPlayer
                 width={"100%"}
                 height={"100%"}
-                url={`${videoEndpoint}/video/${videoTitle}`}
+                url={`${BASE_URL}/video/${videoTitle}`}
                 controls={true}
               />
             </div>

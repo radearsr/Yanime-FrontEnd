@@ -20,6 +20,8 @@ const getDetailAnime = async (setState, titleAnime) => {
   }
 }
 
+export default BASE_URL;
+
 export {
   getAllAnime,
   getDetailAnime,
