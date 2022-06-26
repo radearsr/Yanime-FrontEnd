@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "./styles/ContentList.css";
+import { getAllAnime } from "../../api/Functions";
 
 const ContentList = (props) => {
+  const [animes, setAnimes] = useState([]);
+
+  useEffect(() => {
+    getAllAnime(setAnimes);
+  }, []);
+
   return (
     <div className="list-wrapper">
       <Container>
@@ -29,115 +36,24 @@ const ContentList = (props) => {
                 spaceBetween: 15,
               },
             }}
-          >
-            <SwiperSlide>
-              <a href={"/"} className="content-item">
-                <div className="poster-content-item d-flex">
-                  <img
-                    src="/assets/images/poster2.jpg"
-                    alt=""
-                    className="img-fluid"
-                  />
-                </div>
-                <p>lorem lorem ipsum dilir dolor</p>
-              </a>
-            </SwiperSlide>
-            <SwiperSlide>
-              <a href={"/"} className="content-item">
-                <div className="poster-content-item d-flex">
-                  <img
-                    src="/assets/images/poster4.jpg"
-                    alt=""
-                    className="img-fluid"
-                  />
-                </div>
-                <p>lorem lorem ipsum dilir dolor</p>
-              </a>
-            </SwiperSlide>
-            <SwiperSlide>
-              <a href={"."} className="content-item">
-                <div className="poster-content-item d-flex">
-                  <img
-                    src="/assets/images/poster3.jpg"
-                    alt=""
-                    className="img-fluid"
-                  />
-                </div>
-                <p>lorem lorem ipsum dilir dolor</p>
-              </a>
-            </SwiperSlide>
-            <SwiperSlide>
-              <a href={"/"} className="content-item">
-                <div className="poster-content-item d-flex">
-                  <img
-                    src="/assets/images/poster2.jpg"
-                    alt=""
-                    className="img-fluid"
-                  />
-                </div>
-                <p>lorem lorem ipsum dilir dolor</p>
-              </a>
-            </SwiperSlide>
-            <SwiperSlide>
-              <a href={"."} className="content-item">
-                <div className="poster-content-item d-flex">
-                  <img
-                    src="/assets/images/poster5.jpg"
-                    alt=""
-                    className="img-fluid"
-                  />
-                </div>
-                <p>lorem lorem ipsum dilir dolor</p>
-              </a>
-            </SwiperSlide>
-            <SwiperSlide>
-              <a href={"."} className="content-item">
-                <div className="poster-content-item d-flex">
-                  <img
-                    src="/assets/images/poster1.jpg"
-                    alt=""
-                    className="img-fluid"
-                  />
-                </div>
-                <p>lorem lorem ipsum dilir dolor</p>
-              </a>
-            </SwiperSlide>
-            <SwiperSlide>
-              <a href={"."} className="content-item">
-                <div className="poster-content-item d-flex">
-                  <img
-                    src="/assets/images/poster2.jpg"
-                    alt=""
-                    className="img-fluid"
-                  />
-                </div>
-                <p>lorem lorem ipsum dilir dolor</p>
-              </a>
-            </SwiperSlide>
-            <SwiperSlide>
-              <a href={"."} className="content-item">
-                <div className="poster-content-item d-flex">
-                  <img
-                    src="/assets/images/poster5.jpg"
-                    alt=""
-                    className="img-fluid"
-                  />
-                </div>
-                <p>lorem lorem ipsum dilir dolor</p>
-              </a>
-            </SwiperSlide>
-            <SwiperSlide>
-              <a href={"."} className="content-item">
-                <div className="poster-content-item d-flex">
-                  <img
-                    src="/assets/images/poster1.jpg"
-                    alt=""
-                    className="img-fluid"
-                  />
-                </div>
-                <p>lorem lorem ipsum dilir dolor</p>
-              </a>
-            </SwiperSlide>
+          > 
+            {animes.map((anime, index) => (
+              <SwiperSlide key={index}>
+                <a 
+                  href={`/streaming/${anime.title.split(" ").join("-").toLowerCase()}${anime.type === "series" ? "-eps-1" : ""}`}
+                  className="content-item"
+                >
+                  <div className="poster-content-item d-flex">
+                    <img
+                      src={anime.poster}
+                      alt={anime.title}
+                      className="img-fluid"
+                    />
+                  </div>
+                  <p>{anime.title}</p>
+                </a>
+              </SwiperSlide>
+            ))}
           </Swiper>
         </main>
       </Container>

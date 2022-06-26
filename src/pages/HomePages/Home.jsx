@@ -29,7 +29,7 @@ const Home = () => {
       <Hero />
       <ContentList titleContentList="Terbaru" />
       <ContentList titleContentList="Populer" />
-      <ContentList titleContentList="Tamat" />
+      <ContentList titleContentList="Tamat"  />
       <MobileNav />
     </Fragment>
   );

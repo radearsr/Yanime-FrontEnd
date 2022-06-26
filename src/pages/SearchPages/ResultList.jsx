@@ -1,54 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import ResultItem from "./ResultItem";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/ResultList.css";
+import { getAllAnime } from "../../api/Functions";
 
 const ResultList = () => {
+  const [animes, setAnimes] = useState([]);
+
+  useEffect(() => {
+    getAllAnime(setAnimes);
+  }, []);
+
   return (
     <Container className="content-list" fluid="lg">
-      <ResultItem
-        srcImg="/assets/images/poster1.jpg"
-        title="Tantei Wa Mou Shindeiru"
-        description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur corrupti sit doloremque cum officiis facere magni dolore error quaerat neque."
-        episodeCount="12"
-      />
-      <ResultItem
-        srcImg="/assets/images/poster2.jpg"
-        title="Lorem ipsum dolor red ipsum"
-        description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur corrupti sit doloremque cum officiis facere magni dolore error quaerat neque."
-        episodeCount="26"
-      />
-      <ResultItem
-        srcImg="/assets/images/poster3.jpg"
-        title="Lorem ipsum dolor red ipsum"
-        description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur corrupti sit doloremque cum officiis facere magni dolore error quaerat neque."
-        episodeCount="12"
-      />
-      <ResultItem
-        srcImg="/assets/images/poster1.jpg"
-        title="Lorem ipsum dolor red ipsum"
-        description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur corrupti sit doloremque cum officiis facere magni dolore error quaerat neque."
-        episodeCount="24"
-      />
-      <ResultItem
-        srcImg="/assets/images/poster1.jpg"
-        title="Lorem ipsum dolor red ipsum"
-        description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur corrupti sit doloremque cum officiis facere magni dolore error quaerat neque."
-        episodeCount="24"
-      />
-      <ResultItem
-        srcImg="/assets/images/poster1.jpg"
-        title="Lorem ipsum dolor red ipsum"
-        description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur corrupti sit doloremque cum officiis facere magni dolore error quaerat neque."
-        episodeCount="24"
-      />
-      <ResultItem
-        srcImg="/assets/images/poster1.jpg"
-        title="Lorem ipsum dolor red ipsum"
-        description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur corrupti sit doloremque cum officiis facere magni dolore error quaerat neque."
-        episodeCount="24"
-      />
+      {animes.map((anime, index) => (
+        <ResultItem
+          key={index}
+          linkVideo={`${anime.title.split(" ").join("-").toLowerCase()}${anime.type === "series" ? "-eps-1" : ""}`}
+          srcImg={anime.poster}
+          title={anime.title}
+          description={anime.genre}
+          episodeCount={anime.type === "movie" ? anime.type : "series"}
+        />
+      ))}
     </Container>
   );
 };
