@@ -12,7 +12,7 @@ const getAllAnime = async (setState) => {
 
 const getDetailAnime = async (setState, titleAnime) => {
   try{
-    const response = await fetch(`${BASE_URL}/anime/${titleAnime}`);
+    const response = await fetch(`${BASE_URL}/anime/detail/${titleAnime}`);
     const results = await response.json();
     setState([results.data]);
   } catch(error) {  

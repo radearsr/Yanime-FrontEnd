@@ -24,7 +24,7 @@ const Streaming = () => {
               <a href="/" className="logo-brand">
                 YaPro
               </a>
-              <span>| {`${anime.title}`}</span>
+              <span>| {`${anime.title} ${videoTitle.includes("eps") ? "Episode " + videoTitle.charAt(videoTitle.length - 1) : ""}`}</span>
             </h1>
           </Col>
         </Row>
