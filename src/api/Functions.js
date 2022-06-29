@@ -1,4 +1,4 @@
-const BASE_URL = "https://first-server-uqgwz.run-us-west2.goorm.io/";
+const BASE_URL = "https://first-server-uqgwz.run-us-west2.goorm.io";
 
 const getAllAnime = async (setState) => {
   try{
