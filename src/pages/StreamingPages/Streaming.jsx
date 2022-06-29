@@ -10,6 +10,8 @@ const Streaming = () => {
   const { videoTitle } = useParams();
   const [animes, setAnimes] = useState([]);
 
+  const activeEps = videoTitle.includes("eps") ? videoTitle.split("-")[videoTitle.split("-").length - 1] : "1";
+  console.log(activeEps);
   useEffect(() => {
     getDetailAnime(setAnimes, videoTitle);
   }, []);
@@ -52,12 +54,14 @@ const Streaming = () => {
               </div>
               <div className="main-video-list">
                 {anime.episodes.map((eps) => (
-                  <a href={`${anime.title.split(" ").join("-").toLowerCase()}-eps-${eps.episode}`} className="video-item row g-0 mb-2">
+                  <a href={`${anime.title.split(" ").join("-").toLowerCase()}-eps-${eps.episode}`}
+                    className={`video-item ${parseFloat(activeEps) === eps.episode ? "now" : ""} row g-0 mb-2`}
+                  >
                     <Col xs={2}>
                       <p className="eps">{eps.episode}</p>
                     </Col>
                     <Col xs={10}>
-                      <p>Episode {eps.episode}</p>
+                      <p className="label-eps">Episode {eps.episode}</p>
                     </Col>
                   </a>
                 ))}
