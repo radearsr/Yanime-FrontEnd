@@ -1,7 +1,7 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import { useParams } from "react-router";
-import { Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 import "./styles/Streaming.css";
 import { BASE_URL, getDetailAnime } from "../../api/Functions";
@@ -17,20 +17,9 @@ const Streaming = () => {
 
   return (
     animes.map((anime) => (
-      <Fragment>
-        <Row>
-          <Col lg={12} className="header-video-player">
-            <h1 className="video-title">
-              <a href="/" className="logo-brand">
-                YaPro
-              </a>
-              <span>| {`${anime.title} ${videoTitle.includes("eps") ? "Episode " + videoTitle.charAt(videoTitle.length - 1) : ""}`}</span>
-            </h1>
-          </Col>
-        </Row>
-
+      <Container>
         <Row className="justify-content-evenly">
-          <Col xs={12} lg={8} className="g-lg-0">
+          <Col xs={12} lg={8} className="g-0">
             <div className="video-wrapper">
               <ReactPlayer
                 width={"100%"}
@@ -56,7 +45,7 @@ const Streaming = () => {
             </div>
           </Col>
 
-          <Col xs={12} md={7} lg={3} className="g-lg-0">
+          <Col xs={12} md={7} lg={3} className="g-0">
             <div className="video-list">
               <div className="header-video-list">
                 <h4 className="video-list-title">Daftar Episode</h4>
@@ -76,7 +65,8 @@ const Streaming = () => {
             </div>
           </Col>
         </Row>
-      </Fragment>
+      </Container>
+      
     ))
   );
 };

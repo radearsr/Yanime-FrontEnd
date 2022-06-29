@@ -3,13 +3,13 @@ import { Container } from "react-bootstrap";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "./styles/ContentList.css";
-import { getAllAnime } from "../../api/Functions";
+import { getAllAnimeByCategory } from "../../api/Functions";
 
 const ContentList = (props) => {
   const [animes, setAnimes] = useState([]);
 
   useEffect(() => {
-    getAllAnime(setAnimes);
+    getAllAnimeByCategory(setAnimes, props.category);
   }, []);
 
   return (

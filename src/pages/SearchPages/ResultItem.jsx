@@ -17,7 +17,7 @@ const ResultItem = (props) => {
               <p className="description-item">{props.description}</p>
               <div className="status">
                 <span className="badge text-bg-orange">
-                  {props.episodeCount.toUpperCase()}
+                  {props.episodeCount}
                 </span>
               </div>
             </Col>

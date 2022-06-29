@@ -27,9 +27,8 @@ const Home = () => {
     <Fragment>
       <DesktopNav navbar={navClass} search={searchClass} />
       <Hero />
-      <ContentList titleContentList="Terbaru" />
-      <ContentList titleContentList="Populer" />
-      <ContentList titleContentList="Tamat"  />
+      <ContentList titleContentList="Movie" category="movie" />
+      <ContentList titleContentList="Series" category="series" />
       <MobileNav />
     </Fragment>
   );

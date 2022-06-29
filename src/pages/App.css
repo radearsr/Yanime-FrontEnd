@@ -13,24 +13,27 @@ body {
   background-color: var(--space) !important;
 }
 
-/* Scroll */
-::-webkit-scrollbar {
-  width: 10px;
+@media (min-width: 992px) {
+  /* Scroll */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--space);
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 139, 50, 0.5);
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--orange);
+  }
 }
 
-::-webkit-scrollbar-track {
-  background: var(--space);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 139, 50, 0.5);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--orange);
-}
 
 .icon {
   display: block;

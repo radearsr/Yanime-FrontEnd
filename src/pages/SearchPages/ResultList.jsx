@@ -21,7 +21,7 @@ const ResultList = () => {
           srcImg={anime.poster}
           title={anime.title}
           description={anime.genre}
-          episodeCount={anime.type === "movie" ? anime.type : "series"}
+          episodeCount={anime.type === "series" ? anime.total_eps + " Episode" : "Movie"}
         />
       ))}
     </Container>

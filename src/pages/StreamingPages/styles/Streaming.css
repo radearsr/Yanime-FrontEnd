@@ -4,22 +4,14 @@
   top: 0;
 }
 
-.header-video-player {
-  padding: 0.8rem 0;
-  background-color: var(--orange);
-  color: var(--space);
-  display: flex;
-  padding-left: 1rem;
-}
-
-.header-video-player .video-title {
+.video-title {
   font-size: 1rem;
 }
 
 .logo-brand {
   font-size: 1.4rem;
   text-decoration: none;
-  color: var(--space);
+  color: var(--black);
   font-weight: bold;
   letter-spacing: 2px;
 }
@@ -63,7 +55,7 @@
 }
 
 .main-video-list {
-  padding: 0rem 0.5rem;
+  padding: 0 0.5rem;
   height: 18rem;
   overflow-y: auto;
 }
@@ -93,9 +85,6 @@
 }
 
 @media (min-width: 992px) {
-  .header-video-player {
-    padding-left: 3rem;
-  }
   .video-wrapper {
     position: static;
   }
