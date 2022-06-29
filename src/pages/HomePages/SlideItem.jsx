@@ -10,7 +10,7 @@ const SlideItem = (props) => {
       style={{ backgroundImage: `url('${props.posterUrl}')` }}
     >
       <Col xs={3} className="poster">
-        <img src={props.posterUrl} alt="" className="img-fluid" />
+        <img src={props.posterUrl} alt={props.title} className="img-fluid" />
       </Col>
       <Col xs={8} lg={9} className="details">
         <h1 className="title-detail">{props.title}</h1>

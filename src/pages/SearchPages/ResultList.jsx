@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import ResultItem from "./ResultItem";
+import { useSearchParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/ResultList.css";
-import { getAllAnime } from "../../api/Functions";
+import { getAllAnime, getAllAnimeBySearch } from "../../api/Functions";
 
 const ResultList = () => {
   const [animes, setAnimes] = useState([]);
+  const [searchParams] = useSearchParams();
+  const query = searchParams.get("query");
 
   useEffect(() => {
-    getAllAnime(setAnimes);
+    if (query !== null) {
+      getAllAnimeBySearch(setAnimes, query);
+    } else {
+      getAllAnime(setAnimes);
+    }
   }, []);
 
   return (

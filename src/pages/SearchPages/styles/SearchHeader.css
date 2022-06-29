@@ -2,12 +2,15 @@
   display: flex;
 }
 
-.logo-brand {
-  font-size: 1.4rem;
+.search-header {
+  padding: 0 0.7rem;
+}
+
+a.logo-brand {
+  font-size: 1.2rem;
   text-decoration: none;
   color: var(--space);
   font-weight: bold;
-  letter-spacing: 2px;
 }
 
 @media (min-width: 992px) {

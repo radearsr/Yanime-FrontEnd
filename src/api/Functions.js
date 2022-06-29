@@ -18,7 +18,17 @@ const getAllAnimeByCategory = async (setState, category) => {
   } catch(error) {
     console.log(error);
   }
-} 
+};
+
+const getAllAnimeBySearch = async (setState, query) => {
+  try {
+    const response = await fetch(`${BASE_URL}/anime/search?query=${query}`);
+    const results = await response.json();
+    setState(results.data);
+  } catch(error) {
+    console.log(error);
+  }
+}
 
 const getDetailAnime = async (setState, titleAnime) => {
   try{
@@ -35,4 +45,5 @@ export {
   getAllAnime,
   getDetailAnime,
   getAllAnimeByCategory,
+  getAllAnimeBySearch,
 };

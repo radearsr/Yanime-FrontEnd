@@ -5,7 +5,7 @@ import "./styles/SearchNav.css";
 
 const NavSearch = (props) => {
   return (
-    <form className={`${props.responsive} search-group g-0`}>
+    <form className={`${props.responsive} search-group g-0`} action="/search" method="GET">
       <Row className="g-0">
         <Col xs={9} md={10}>
           <input
@@ -13,6 +13,7 @@ const NavSearch = (props) => {
             className={props.classInput}
             autoComplete="off"
             placeholder="Cari Anime..."
+            name="query"
           />
         </Col>
         <Col xs={3} md={2}>
