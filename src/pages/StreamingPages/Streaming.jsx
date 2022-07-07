@@ -11,22 +11,22 @@ const Streaming = () => {
   const [animes, setAnimes] = useState([]);
 
   const activeEps = videoTitle.includes("eps") ? videoTitle.split("-")[videoTitle.split("-").length - 1] : "1";
-  console.log(activeEps);
+
   useEffect(() => {
     getDetailAnime(setAnimes, videoTitle);
   }, []);
 
 
   return (
-    animes.map((anime) => (
-      <Container>
+    animes.map((anime, index) => (
+      <Container key={index}>
         <Row className="justify-content-evenly">
           <Col xs={12} lg={8} className="g-0">
             <div className="video-wrapper">
               <ReactPlayer
                 width={"100%"}
                 height={"100%"}
-                url={`${BASE_URL}/video/${videoTitle}`}
+                url={`${BASE_URL}/api/video/${videoTitle}`}
                 controls={true}
               />
             </div>
@@ -53,9 +53,10 @@ const Streaming = () => {
                 <h4 className="video-list-title">Daftar Episode</h4>
               </div>
               <div className="main-video-list">
-                {anime.episodes.map((eps) => (
+                {anime.episodes.map((eps, index) => (
                   <a href={`${anime.title.split(" ").join("-").toLowerCase()}-eps-${eps.episode}`}
-                    className={`video-item ${parseFloat(activeEps) === eps.episode ? "now" : ""} row g-0 mb-2`}
+                    className={`video-item ${parseFloat(activeEps) === parseFloat(eps.episode) ? "now" : ""} row g-0 mb-2`}
+                    key={index}
                   >
                     <Col xs={2}>
                       <p className="eps">{eps.episode}</p>
