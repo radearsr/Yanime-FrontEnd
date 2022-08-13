@@ -1,0 +1,22 @@
+.wrapper-history-item{
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  border-bottom: 1px solid red;
+  margin-bottom: 1rem;
+  padding: .2rem;
+  height: 9rem;
+}
+
+@media (min-width: 768px) {
+  .wrapper-history-item{
+    height: 12rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .wrapper-history-item {
+    height: 14rem;
+  }
+}
+

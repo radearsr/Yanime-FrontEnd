@@ -1,0 +1,21 @@
+.form-search {
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+}
+.form-search input, button[type="submit"]{
+  padding: .5rem .5rem;
+}
+.form-search input {
+  width: 85%;
+  border: 1px solid transparent;
+  transition: .3s;
+}
+button[type="submit"] {
+  width: 15%;
+  outline: none;
+  border: none;
+}
+.form-search input:focus{
+  border: 1px solid red;
+}

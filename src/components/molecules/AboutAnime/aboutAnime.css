@@ -1,0 +1,62 @@
+.wrapper-about-anime{
+  margin-top: 1.5rem;
+  padding: 0 .2rem;
+}
+
+.title-sin, .text-sin{
+  margin: 0;
+}
+
+.title-sin{
+  font-size: 2rem;
+  border-bottom: 2px solid black;
+  padding-bottom: .5rem;
+}
+
+.text-sin{
+  font-size: .9rem;
+  text-align: justify;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-height: max-content;
+  overflow: hidden;
+  transition: .3s;
+}
+
+.text-sin.more {
+  height: auto;
+  display: block;
+  overflow: visible;
+  box-shadow: none;
+}
+
+.see-more {
+  display: block;
+  text-align: center;
+  /* margin-top: .5rem; */
+  font-size: 1rem;
+}
+
+.see-shadow {
+  box-shadow: 0px -10px 25px 0px rgb(0, 0, 0);
+}
+
+.d-none {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .wrapper-about-anime{
+    margin-top: 1.5rem;
+    padding: 0 2.5rem;
+  }
+
+  .title-sin{
+    font-size: 2.5rem;
+  }
+
+  .text-sin {
+    font-size: 1rem;
+  }
+}

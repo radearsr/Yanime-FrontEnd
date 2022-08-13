@@ -1,0 +1,17 @@
+.search-result-wrapper {
+  max-width: 800px;
+  padding: 0 .5rem;
+  margin: 0 auto;
+}
+
+.mobile-form-search {
+  display: block;
+  max-width: 30rem;
+  margin: .5rem auto;
+}
+
+@media (min-width: 992px) {
+  .mobile-form-search{
+    display: none;
+  }
+}

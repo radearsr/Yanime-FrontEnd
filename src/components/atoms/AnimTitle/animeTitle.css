@@ -1,0 +1,32 @@
+.anime-title {
+  line-height: 1.2;
+  text-align: justify;
+  hyphens: auto;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.anime-title {
+  margin: 0;
+  height: 2.85rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  /* border: 1px solid red */
+}
+
+@media (min-width: 768px) {
+  .anime-title {
+    height: 3.2rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .anime-title {
+    height: 3.6rem;
+    font-size: 1.4rem;
+  }
+}

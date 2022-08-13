@@ -1,69 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins&display=swap");
-
-:root {
-  --black: rgb(6, 17, 60);
-  --orange: rgb(255, 140, 50);
-  --grey: rgb(221, 221, 221);
-  --space: rgb(238, 238, 238);
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-
-body {
-  font-family: "Montserrat", sans-serif !important;
-  overflow-x: hidden;
-  background-color: var(--space) !important;
-}
-
-@media (min-width: 992px) {
-  /* Scroll */
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: var(--space);
-    border-radius: 10px;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: rgba(255, 139, 50, 0.5);
-    border-radius: 10px;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--orange);
-  }
-}
-
-
-.icon {
-  display: block;
-  background-position: center;
-  background-size: cover;
-}
-
-.icon-nav {
-  width: 1.8rem;
-  height: 1.8rem;
-}
-
-.icon-search {
-  width: 1.8rem;
-  height: 1.8rem;
-  margin: 0 auto;
-}
-
-.icon.history {
-    background-image: url("../../public/assets/icons/history-colored.png");
-}
-.icon.search {
-  background-image: url("../../public/assets/icons/search-colored.png");
-}
-.icon.nav-search {
-  background-image: url("../../public/assets/icons/search.png");
-}
-.icon.home {
-  background-image: url("../../public/assets/icons/home-colored.png");
-}
-.icon.info{
-  background-image: url("../../public/assets/icons/info-colored.png");
+body{
+  font-family: 'Montserrat', sans-serif;
 }

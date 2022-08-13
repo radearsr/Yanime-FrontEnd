@@ -1,0 +1,22 @@
+.wrapper-result-item {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 9rem;
+  padding: .2rem;
+  gap: .5rem;
+  border-bottom: 1px solid red;
+}
+
+@media (min-width: 768px) {
+  .wrapper-result-item{
+    height: 12rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .wrapper-result-item {
+    height: 14rem;
+  }
+}

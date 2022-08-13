@@ -1,0 +1,9 @@
+input {
+  font-size: 1rem;
+  border: none;
+  outline: none;
+}
+
+input:focus{
+  outline: none;
+}

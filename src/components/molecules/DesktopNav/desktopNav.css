@@ -1,0 +1,13 @@
+.desktop-nav{
+  display: none !important;
+}
+
+.desktop-form-search{
+  width: 28rem;
+}
+
+@media (min-width: 992px) {
+  .desktop-nav{
+    display: block !important;
+  }
+}
