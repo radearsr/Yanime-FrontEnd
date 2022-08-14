@@ -14,9 +14,9 @@ import "./videoStreaming.css";
 
 const VideoStreaming = () => {
   return (
-    <Container fluid="lg">
-      <Row className="g-0 justify-content-evenly wrapper-streaming-video">
-        <Col xs={12} lg={8} className="g-0">
+    <Container>
+      <Row className="g-0 justify-content-between">
+        <Col xs={12} lg={9} className="g-0">
           <div className="video-wrapper">
             <ReactPlayer
               width={"100%"}
@@ -24,9 +24,9 @@ const VideoStreaming = () => {
               url={"https://first-server-uqgwz.run-us-west2.goorm.io/api/video/kimi-no-nawa"}  
               controls={true} 
             />
-          </div>
+          </div>  
         </Col>
-        <Col xs={12} lg={3}>
+        <Col xs={12} lg={3} className="eps-section">
           <h3 className="title">Daftar Episode</h3>
           <div className="episode-list">
             <EpisodeItem />

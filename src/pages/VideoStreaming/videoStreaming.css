@@ -1,8 +1,9 @@
+.container {
+  padding: 0;
+}
 
-.video-wrapper{
-  margin: 0;
-  position: sticky;
-  top: 0;
+.eps-section{
+  padding: 0 1rem;
 }
 
 .title {
@@ -10,13 +11,12 @@
   text-align: center;
 }
 
-
-
 .episode-list{
   white-space: nowrap;
-  width: 100%;
+  width: 90%;
   overflow: hidden;
   overflow-x: auto;
+  margin: 0 auto;
 }  
 
 .wrapper-video-streaming .title-sinopsis {
@@ -34,4 +34,9 @@
     height: 26.2rem;
     overflow: hidden;
   }
+
+  .episode-list{
+    width: 90%;
+    margin: 0 auto;
+  } 
 }
