@@ -1,8 +1,11 @@
-.list-item{
-  display: flex;
+.bg-black{
+  background-color: #222831;
 }
-.item{
-  width: 100px;
-  height: 100px;
-  background-color: red;
+
+.bg-navy {
+  background-color: #2C3639;
+}
+
+.bg-orange {
+  background-color: #F66B0E;
 }

@@ -14,7 +14,7 @@ import "./videoStreaming.css";
 
 const VideoStreaming = () => {
   return (
-    <Container>
+    <Container className="streaming-container">
       <Row className="g-0 justify-content-between">
         <Col xs={12} lg={9} className="g-0">
           <div className="video-wrapper">
