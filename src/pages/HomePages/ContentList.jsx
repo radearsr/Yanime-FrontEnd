@@ -28,7 +28,7 @@ const ContentList = (props) => {
             spaceBetween={10}
             breakpoints={{
               992: {
-                slidesPerView: 7,
+                slidesPerView: 6,
                 spaceBetween: 20,
               },
               768: {
@@ -50,7 +50,7 @@ const ContentList = (props) => {
                       className="img-fluid"
                     />
                   </div>
-                  <p>{anime.title}</p>
+                  <p className="anime-title">{anime.title}</p>
                 </a>
               </SwiperSlide>
             ))}
