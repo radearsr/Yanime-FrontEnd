@@ -23,6 +23,7 @@ const Home = () => {
   useEffect(() => {
     window.addEventListener("scroll", (e) => handleNavbar(e));
   });
+  
   return (
     <Fragment>
       <DesktopNav navbar={navClass} search={searchClass} />
