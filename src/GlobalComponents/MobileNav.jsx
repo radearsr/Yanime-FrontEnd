@@ -10,34 +10,54 @@ import {
   InfoSquare,
 } from "react-bootstrap-icons";
 import { useLocation } from "react-router";
+import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/MobileNav.css";
 
 const MobileNav = () => {
+
+  const navigate = useNavigate();
   const location = useLocation();
 
   const { pathname } = location;
   const [,currLoc] = pathname.split("/");
-  console.log(currLoc);
+
+  const checkActivePage = (thisVal, curVal) => {
+    return thisVal === curVal ? "active" : "no-act";
+  };
+
   return (
     <Fragment>
+      <div className="visible-mob-nav"></div>
       <Navbar bg="light" expand="lg" className="mobile-nav" fixed="bottom">
         <Container className="justify-content-around">
-          <div className="nav-mob-item">
-            <HouseDoor size={22} color="rgb(6, 17, 60)" />
-            <p>Home</p>
+          <div className="nav-mob-item" onClick={() => navigate("/")}>
+            <HouseDoor
+              size={25}
+              className={checkActivePage("", currLoc)}
+            />
+            <p className={`icon-label ${checkActivePage("", currLoc)}`}>Home</p>
           </div>
-          <div className="nav-mob-item">
-            <Search size={22} />
-            <p>Search</p>
+          <div className="nav-mob-item" onClick={() => navigate("/search")}>
+            <Search
+              size={25}
+              className={checkActivePage("search", currLoc)}
+            />
+            <p className={`icon-label ${checkActivePage("search", currLoc)}`}>Search</p>
           </div>
-          <div className="nav-mob-item">
-            <ClockHistory size={22} className="active" />
-            <p className="icon-name">History</p>
+          <div className="nav-mob-item" onClick={() => navigate("/history")}>
+            <ClockHistory
+              size={25}
+              className={checkActivePage("history", currLoc)}
+            />
+            <p className={`icon-label ${checkActivePage("history", currLoc)}`}>History</p>
           </div>
-          <div className="nav-mob-item">
-            <InfoSquare size={22} />
-            <p>Info</p>
+          <div className="nav-mob-item" onClick={() => navigate("/about")}>
+            <InfoSquare
+              size={25}
+              className={checkActivePage("about", currLoc)}
+            />
+            <p className={`icon-label ${checkActivePage("about", currLoc)}`}>About</p>
           </div>
         </Container>
       </Navbar>

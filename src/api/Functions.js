@@ -1,9 +1,10 @@
-const BASE_URL = "https://first-server-uqgwz.run-us-west2.goorm.io";
+const BASE_URL = "http://localhost:5000";
 
 const getAllAnime = async (setState) => {
   try{
     const response = await fetch(`${BASE_URL}/api/animes`);
     const results = await response.json();
+    console.log(results);
     setState(results.data);
   } catch(error) {
     console.log(error);
