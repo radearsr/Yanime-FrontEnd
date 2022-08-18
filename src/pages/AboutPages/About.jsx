@@ -1,22 +1,15 @@
-import React, { Fragment } from "react";
-import ReactPlayer from "react-player";
-import DesktopNav from "../../GlobalComponents/DesktopNav";
-import MobileNav from "../../GlobalComponents/MobileNav";
+import React from "react";
+import "./about.css";
 
-const Info = () => {
+const About = () => {
   return (
-    <Fragment>
-      <DesktopNav navbar="bg-orange" search="input-search scrolled" />
-      <ReactPlayer
-        width={"100%"}
-        height={"100%"}
-        src={"http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"}
-        playing={true}
-        controls={true}
-      />
-      <MobileNav />
-    </Fragment>
+    <div className="wrapper-about">
+      <h1 className="title text-center">About Us</h1>
+      <span className="text-underline"></span>
+      <p className="about-text text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum vero ea laudantium cum enim eveniet veritatis aliquid natus, deleniti suscipit reprehenderit aliquam laborum eligendi dolorem autem quidem ipsa unde cumque.</p>
+      <p className="copyright text-center">&copy; 2022 Yanime. All rights reserved.</p>
+    </div>
   );
 };
 
-export default Info;
+export default About;
