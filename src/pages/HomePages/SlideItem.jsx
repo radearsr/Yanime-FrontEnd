@@ -13,8 +13,8 @@ const SlideItem = (props) => {
         <img src={props.posterUrl} alt={props.title} className="img-fluid" />
       </Col>
       <Col xs={8} lg={9} className="details">
-        <h1 className="title-detail">{props.title}</h1>
-        <p className="description-detail">{props.description}</p>
+        <h1 className="title-detail text">{props.title}</h1>
+        <p className="description-detail text">{props.description}</p>
         <a href={props.linkWatch} className="btn btn-watch">
           Watch
         </a>

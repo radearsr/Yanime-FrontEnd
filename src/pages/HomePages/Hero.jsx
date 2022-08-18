@@ -11,8 +11,8 @@ const Hero = () => {
           posterUrl="/assets/images/poster1.jpg"
           description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos atque
 dolor excepturi aperiam, facere quae ducimus! Quos iusto laborum
-explicabo ipsa quod animi earum delectus quibusdam amet"
-          title="Lorem lorem oipsum oposim hpusum"
+explicabo ipsa quod animi earum delectus quibusdam amet Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos atque dolor excepturi aperiam, facere quae ducimus! Quos iusto laborum explicabo ipsa quod animi earum delectus quibusdam amet Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos atque dolor excepturi aperiam, facere quae ducimus! Quos iusto laborum explicabo ipsa quod animi earum delectus quibusdam amet Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos atque dolor excepturi aperiam, facere quae ducimus! Quos iusto laborum explicabo ipsa quod animi earum delectus quibusdam amet"
+          title="Lorem lorem oipsum oposim hpusum Lorem lorem oipsum oposim hpusumLorem lorem oipsum oposim hpusum Lorem lorem oipsum oposim hpusum Lorem lorem oipsum oposim hpusum"
         />
       </Carousel.Item>
       <Carousel.Item>
@@ -20,8 +20,8 @@ explicabo ipsa quod animi earum delectus quibusdam amet"
           posterUrl="/assets/images/poster2.jpg"
           description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos atque
 dolor excepturi aperiam, facere quae ducimus! Quos iusto laborum
-explicabo ipsa quod animi earum delectus quibusdam amet"
-          title="Lorem lorem oipsum oposim hpusum"
+explicabo ipsa quod animi earum delectus quibusdam amet Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos atque dolor excepturi aperiam, facere quae ducimus! Quos iusto laborum explicabo ipsa quod animi earum delectus quibusdam amet Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos atque dolor excepturi aperiam, facere quae ducimus! Quos iusto laborum explicabo ipsa quod animi earum delectus quibusdam amet Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos atque dolor excepturi aperiam, facere quae ducimus! Quos iusto laborum explicabo ipsa quod animi earum delectus quibusdam amet"
+          title="Lorem lorem oipsum oposim hpusum Lorem lorem oipsum oposim hpusumLorem lorem oipsum oposim hpusum Lorem lorem oipsum oposim hpusum Lorem lorem oipsum oposim hpusum"
         />
       </Carousel.Item>
       <Carousel.Item>
@@ -29,8 +29,8 @@ explicabo ipsa quod animi earum delectus quibusdam amet"
           posterUrl="/assets/images/poster3.jpg"
           description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos atque
 dolor excepturi aperiam, facere quae ducimus! Quos iusto laborum
-explicabo ipsa quod animi earum delectus quibusdam amet"
-          title="Lorem lorem oipsum oposim hpusum"
+explicabo ipsa quod animi earum delectus quibusdam amet Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos atque dolor excepturi aperiam, facere quae ducimus! Quos iusto laborum explicabo ipsa quod animi earum delectus quibusdam amet Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos atque dolor excepturi aperiam, facere quae ducimus! Quos iusto laborum explicabo ipsa quod animi earum delectus quibusdam amet Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos atque dolor excepturi aperiam, facere quae ducimus! Quos iusto laborum explicabo ipsa quod animi earum delectus quibusdam amet"
+          title="Lorem lorem oipsum oposim hpusum Lorem lorem oipsum oposim hpusumLorem lorem oipsum oposim hpusum Lorem lorem oipsum oposim hpusum Lorem lorem oipsum oposim hpusum"
         />
       </Carousel.Item>
     </Carousel>
