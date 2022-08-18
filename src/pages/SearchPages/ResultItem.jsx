@@ -12,9 +12,9 @@ const ResultItem = (props) => {
             <Col xs={3} md={2} className="me-md-2 d-flex">
               <img src={props.srcImg} alt={props.title} className="img-fluid" />
             </Col>
-            <Col xs={9} className="p-1 p-md-3">
-              <h4 className="title-item">{props.title}</h4>
-              <p className="description-item">{props.description}</p>
+            <Col xs={9} className="p-3 p-md-3">
+              <h4 className="title-item text">{props.title}</h4>
+              <p className="description-item text">{props.description}</p>
               <div className="status">
                 <span className="badge text-bg-orange">
                   {props.episodeCount}

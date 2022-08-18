@@ -40,7 +40,7 @@
   -webkit-line-clamp: 5;
 }
 
-.slide-item .details .text {
+.text {
   overflow: hidden;
   text-align: justify;
   word-break: break-all;

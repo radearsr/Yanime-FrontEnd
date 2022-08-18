@@ -28,7 +28,7 @@ const ContentList = (props) => {
             spaceBetween={10}
             breakpoints={{
               992: {
-                slidesPerView: 6,
+                slidesPerView: 7,
                 spaceBetween: 20,
               },
               768: {

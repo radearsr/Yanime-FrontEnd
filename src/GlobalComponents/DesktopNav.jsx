@@ -1,39 +1,49 @@
 import React from "react";
-import { Navbar, Container, Nav } from "react-bootstrap";
+import {
+  Navbar,
+  Container,
+  Nav,
+} from "react-bootstrap";
 import { useLocation } from "react-router";
+import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/DesktopNav.css";
 import SearchNav from "./SearchNav";
 
 const DesktopNav = (props) => {
+  const navigate = useNavigate();
   const location = useLocation();
 
   const { pathname } = location;
 
-  const splitLocation = pathname.split("/");
+  const [,curLoc] = pathname.split("/");
+
+  const checkActivePage = (thisVal, curVal) => {
+    return thisVal === curVal ? "active" : "";
+  };
 
   return (
     <Navbar className={`${props.navbar} fixed-top`} variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand href="/">YaPro</Navbar.Brand>
+        <Navbar.Brand onClick={() => navigate("/")}>Yapro</Navbar.Brand>
         <Nav className="me-auto">
           <Nav.Link
-            href="/"
-            className={`${splitLocation[1] === "" ? "active" : ""}`}
+            onClick={() => navigate("/")}
+            className={checkActivePage("", curLoc)}
           >
             Home
           </Nav.Link>
           <Nav.Link
-            href="/history"
-            className={`${splitLocation[1] === "history" ? "active" : ""}`}
+            onClick={() => navigate("/history")}
+            className={checkActivePage("history", curLoc)}
           >
             History
           </Nav.Link>
           <Nav.Link
-            href="/info"
-            className={`${splitLocation[1] === "info" ? "active" : ""}`}
+            onClick={() => navigate("/about")}
+            className={checkActivePage("about", curLoc)}
           >
-            Info
+            About Us
           </Nav.Link>
         </Nav>
         <SearchNav classInput={props.search} responsive="col-md-4" />

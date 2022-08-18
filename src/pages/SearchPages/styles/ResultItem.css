@@ -3,14 +3,19 @@
 }
 
 .title-item {
-  font-size: 1.1rem;
+  letter-spacing: normal;
+  font-size: 1rem;
   font-weight: bold;
   color: var(--orange);
+  height: 2.5rem;
+  -webkit-line-clamp: 2;
 }
 
 .description-item {
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   color: var(--black);
+  height: 1.8rem;
+  -webkit-line-clamp: 2;
 }
 
 /* Background List */
@@ -35,12 +40,37 @@
   color: var(--space);
 }
 
-@media (min-width: 992px) {
-  .title-item {
-    font-size: 1.4rem;
+@media (min-width: 576px) {
+  .wrapper-item .title-item {
+    font-size: 1.1rem;
+    height: 2.6rem;
+  }
+  .wrapper-item .description-item {
+    font-size: .66rem;
+    height: 1.9rem;
   }
 
-  .description-item {
-    font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+  .wrapper-item .title-item {
+    font-size: 1.1rem;
+    height: 2.65rem;
+  }
+  .wrapper-item .description-item {
+    font-size: .66rem;
+    height: 1.9rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .wrapper-item .title-item {
+    font-size: 1.4rem;
+    height: 3.4rem;
+  }
+
+  .wrapper-item .description-item {
+    font-size: .8rem;
+    height: 2.25rem;
   }
 }
