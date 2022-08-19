@@ -1,10 +1,10 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "./HomePages/Home";
-import Search from "./SearchPages/Search";
-import History from "./HistoryPages/History";
-import About from "./AboutPages/About";
-import Streaming from "./StreamingPages/Streaming";
+import Home from "./Home/Home";
+import Search from "./Search/Search";
+import History from "./History/History";
+import About from "./About/About";
+import Streaming from "./Streaming/Streaming";
 import "./App.css";
 
 const App = () => {

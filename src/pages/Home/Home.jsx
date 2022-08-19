@@ -1,8 +1,8 @@
 import React, { Fragment, useState, useEffect } from "react";
 import Hero from "./Hero";
 import ContentList from "./ContentList";
-import DesktopNav from "../../GlobalComponents/DesktopNav";
-import MobileNav from "../../GlobalComponents/MobileNav";
+import DesktopNav from "../../components/DesktopNav";
+import MobileNav from "../../components/MobileNav";
 
 const Home = () => {
   const [navClass, setNavClass] = useState("bg-transparent");

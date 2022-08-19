@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
-import DesktopNav from "../../GlobalComponents/DesktopNav";
-import MobileNav from "../../GlobalComponents/MobileNav";
+import DesktopNav from "../../components/DesktopNav";
+import MobileNav from "../../components/MobileNav";
 import "./styles/about.css";
 
 const About = () => {

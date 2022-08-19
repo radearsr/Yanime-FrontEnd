@@ -11,6 +11,10 @@ const ResultList = () => {
   const [searchParams] = useSearchParams();
   const query = searchParams.get("query");
 
+  const generateLink = (titleAnime, typeAnime) => {
+    return `${titleAnime.split(" ").join("-").toLowerCase()}${typeAnime === "series" ? "-eps-1" : ""}`;
+  };
+
   useEffect(() => {
     if (query !== null) {
       getAllAnimeBySearch(setAnimes, query);
@@ -24,7 +28,7 @@ const ResultList = () => {
       {animes.map((anime, index) => (
         <ResultItem
           key={index}
-          linkVideo={`${anime.title.split(" ").join("-").toLowerCase()}${anime.type === "series" ? "-eps-1" : ""}`}
+          linkVideo={generateLink(anime.title, anime.type)}
           srcImg={anime.poster}
           title={anime.title}
           description={anime.genre}

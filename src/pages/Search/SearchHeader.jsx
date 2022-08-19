@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
-import SearchNav from "../../GlobalComponents/SearchNav";
+import SearchNav from "../../components/SearchNav";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/SearchHeader.css";
 
