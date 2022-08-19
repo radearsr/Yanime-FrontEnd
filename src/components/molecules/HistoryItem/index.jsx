@@ -5,6 +5,9 @@ import {
   AnimeTitle,
   AnimeType,
 } from "../../";
+import {
+  Trash
+} from "react-bootstrap-icons";
 
 const HistoryItem = ({thumbImg, title, type}) => {
   return (
@@ -15,6 +18,7 @@ const HistoryItem = ({thumbImg, title, type}) => {
         <AnimeType text={type} />
         <p className="duration">12:00 / 24:00</p>
       </div>
+      <Trash size={30} />
     </div>
   );
 };
