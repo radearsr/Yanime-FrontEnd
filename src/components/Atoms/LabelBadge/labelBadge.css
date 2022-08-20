@@ -1,0 +1,15 @@
+.label-badge{
+  display: inline-block;
+  font-size: .6rem;
+  font-weight: bold;
+  border-radius: .25rem;
+  padding: .1rem .2rem;
+  background-color: var(--orange);
+  color: var(--space);
+}
+
+@media (min-width: 992px) {
+  .label-badge {
+    font-size: .8rem;
+  }
+}

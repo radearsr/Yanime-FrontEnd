@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
-import ResultItem from "./ResultItem";
+import {
+  Container,
+  Row,
+  Col,
+} from "react-bootstrap";
+import SearchResult from "./SearchResult";
 import { useSearchParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/ResultList.css";
@@ -26,14 +30,18 @@ const ResultList = () => {
   return (
     <Container className="content-list" fluid="lg">
       {animes.map((anime, index) => (
-        <ResultItem
-          key={index}
-          linkVideo={generateLink(anime.title, anime.type)}
-          srcImg={anime.poster}
-          title={anime.title}
-          description={anime.genre}
-          episodeCount={anime.type === "series" ? anime.episodes.length + " Episode" : "Movie"}
-        />
+        <Row className="justify-content-center mb-2 mb-md-3 mb-lg-4">
+          <Col xs={12} md={10} lg={8}>
+            <SearchResult
+              key={index}
+              linkVideo={generateLink(anime.title, anime.type)}
+              srcThumb={anime.poster}
+              title={anime.title}
+              genre={anime.genre}
+              type={anime.type === "series" ? anime.episodes.length + " Episode" : "Movie"}
+            />
+          </Col>
+        </Row>
       ))}
     </Container>
   );

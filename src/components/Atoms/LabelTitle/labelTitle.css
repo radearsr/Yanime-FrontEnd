@@ -1,0 +1,43 @@
+.label-title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--orange);
+  min-height: max-content;
+  max-height: 2.5rem;
+  -webkit-line-clamp: 2;
+}
+
+.managed-text {
+  letter-spacing: normal;
+  text-align: justify;
+  word-break: break-all;
+  word-spacing: normal;
+  hyphens: auto;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+}
+
+@media (min-width: 576px) {
+  .label-title {
+    font-size: 1.1rem;
+    min-height: max-content;
+    max-height: 2.6rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .label-title {
+    font-size: 1.1rem;
+    min-height: max-content;
+    max-height: 2.65rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .label-title {
+    font-size: 1.35rem;
+    min-height: max-content;
+    max-height: 3.4rem;
+  }
+}

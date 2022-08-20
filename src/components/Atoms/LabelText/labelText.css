@@ -1,0 +1,32 @@
+.label-text {
+  margin: 0;
+  font-size: 0.6rem;
+  color: var(--black);
+  min-height: max-content;
+  max-height: 1.8rem;
+  -webkit-line-clamp: 2;
+}
+
+@media (min-width: 576px) {
+  .label-text {
+    font-size: .66rem;
+    min-height: max-content;
+    max-height: 1.9rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .label-text {
+    font-size: .66rem;
+    min-height: max-content;
+    max-height: 1.9rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .label-text {
+    font-size: 0.9rem;
+    min-height: max-content;
+    max-height: 2.4rem;
+  }
+}

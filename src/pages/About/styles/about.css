@@ -1,11 +1,13 @@
 .wrapper-about{
   max-width: 800px;
   margin: 0 auto;
+  margin-top: 4rem;
 }
 
 .wrapper-about .title {
   margin-top: 2rem;
   font-size: 3rem;
+  color:var(--black);
 }
 
 .wrapper-about .text-underline {
@@ -14,13 +16,15 @@
   height: .5rem;
   margin: 1rem auto;
   border-radius: .5rem;
-  background-color: red;
+  background-color: var(--orange);
 }
 
 .wrapper-about .about-text {
-  font-size: 1.2rem;
+  font-size: 1rem;
+  color: var(--black);
 }
 
 .wrapper-about .copyright{
-  font-size: 1.1rem;
+  font-size: .9rem;
+  color: var(--black );
 }

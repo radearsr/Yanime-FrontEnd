@@ -1,27 +1,25 @@
-.wrapper-history-item {
+.wrapper-search-result {
   cursor: pointer;
   background-color: var(--grey);
+  box-sizing: border-box;
   width: 100%;
-  padding: 1rem;
-  padding-left: 0;
-  gap: 1rem;
+  align-items: center;
   height: 7rem;
+  padding: .4rem;
+  padding-left: 0;
+  gap: .5rem;
   border-radius: 1rem;
 }
 
-.wrapper-content-history {
-  align-items: center;
-  gap: 1rem;
-}
 
 @media (min-width: 768px) {
-  .wrapper-history-item {
+  .wrapper-search-result {
     height: 12rem;
   }
 }
 
 @media (min-width: 992px) {
-  .wrapper-history-item {
+  .wrapper-search-result {
     height: 14rem;
   }
 }
