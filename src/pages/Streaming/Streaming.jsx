@@ -1,16 +1,21 @@
 import React, {  useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import { useParams } from "react-router";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 import "./styles/Streaming.css";
 import { BASE_URL, getDetailAnime } from "../../api/Functions";
 import {
   EpisodeItem,
   AboutAnime,
-} from "../../components/Atoms"
+} from "../../components/Atoms";
+import {
+  useNavigate
+} from "react-router-dom"
 
 const Streaming = () => {
+  const navigate = useNavigate();
+
   const { videoTitle } = useParams();
   const [animes, setAnimes] = useState([]);
 
@@ -57,6 +62,16 @@ const Streaming = () => {
             </div>
           </Col>
         </Row>
+        <div className="button-group">
+          <Row className="justify-content-md-between justify-content-center">
+            <Col xs={10} md={5}>
+              <button className="btn btn-home" onClick={() => navigate("/")}>Home</button>
+            </Col>
+            <Col xs={10} md={5}>
+              <button className="btn btn-search" onClick={() => navigate("/search")}>Search</button>
+            </Col>
+          </Row>
+        </div>
         <AboutAnime text={anime.description} />
       </Container>
     ))
