@@ -1,118 +1,37 @@
-.video-wrapper {
-  margin: auto;
-  position: sticky;
-  top: 0;
+.streaming-container {
+  padding: 0 !important;
 }
 
-.video-title {
-  font-size: 1rem;
+.eps-section {
+  padding: 0 .5rem;
 }
 
-.logo-brand {
-  font-size: 1.4rem;
-  text-decoration: none;
-  color: var(--black);
-  font-weight: bold;
-  letter-spacing: 2px;
-}
-
-.button-area {
-  margin: 0.5rem 0;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 1rem;
-}
-
-.button-area a.btn {
-  padding: 0.5rem 1rem;
-  background-color: var(--orange);
-  color: var(--space);
-}
-
-.video-details {
-  margin: 1rem 0;
-  padding: 0.5rem;
-}
-
-.video-details h4 {
-  margin-bottom: 1rem;
-  font-weight: bold;
-}
-.video-details p {
-  font-size: 0.8rem;
-}
-.video-list {
-  margin-top: 2rem;
-  padding-bottom: 1rem;
-}
-
-.video-list-title {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  background-color: var(--black);
-  color: white;
-  padding: 1rem 0.5rem;
-}
-
-.main-video-list {
-  padding: 0 0.5rem;
-  height: 18rem;
-  overflow-y: auto;
-}
-.main-video-list a {
-  text-decoration: none;
-}
-
-.main-video-list .video-item div {
-  overflow: hidden;
-}
-.main-video-list .video-item p {
-  margin: 0;
-  font-size: 1.2rem;
-  padding: 0.8rem 0.5rem;
-}
-.main-video-list .video-item div:first-child {
-  border-radius: 0.4rem 0 0 0.4rem;
+.title {
+  font-size: 2rem;
   text-align: center;
-  border: 2px solid var(--black);
-  color: var(--black);
-}
-
-.main-video-list .video-item div:last-child {
-  border-radius: 0 0.4rem 0.4rem 0;
-  text-align: left;
-  border: 2px solid var(--orange);
-  color: var(--orange);
-}
-
-.main-video-list .video-item.now div:first-child {
-  color: var(--space);
+  font-weight: bold;
   background-color: var(--black);
-}
-
-.main-video-list .video-item.now div:last-child {
   color: var(--space);
-  background-color: var(--orange);
+  padding: .5rem 0;
+  border-radius: 0.5rem 0.5rem 0 0;
 }
 
-@media (min-width: 768px) {
-  .logo-brand {
-    font-size: 2rem;
-    letter-spacing: 2px;
-  }
+.episode-list {
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  overflow-x: auto;
+  margin: 0 auto;
 }
 
 @media (min-width: 992px) {
-  .video-wrapper {
-    position: static;
+  .episode-list {
+    height: 30rem;
+    overflow: hidden;
+    overflow-y: auto;
   }
-  .video-details {
-    padding: 1rem;
-  }
-  .video-list {
-    margin-top: 0;
-  }
-  .main-video-list {
-    height: 64vh;
+
+  .title {
+    font-size: 1.8rem;
   }
 }
