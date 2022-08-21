@@ -36,10 +36,8 @@ const AboutAnime = ({text}) => {
 
   return (
     <div className="wrapper-about-anime">
-      <Stack direction="vertical" gap={3}>
-        <h3 className="title-sin">Sinopsis</h3>
-        <p className="text-sin">{text}</p>
-      </Stack>
+      <h3 className="title-sin">Sinopsis</h3>
+      <p className="text-sin">{text}</p>
       <p className="see-more see-shadow" onClick={handleSeeMore}>{textMore}</p>
     </div>
   );

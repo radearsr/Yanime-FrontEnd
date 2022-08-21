@@ -1,13 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./episodeItem.css";
 
-const EpisodeItem = () => {
+const EpisodeItem = ({number, linkVideo, activePage}) => {
+  const navigate = useNavigate();
+  const curActivePage = parseFloat(activePage) === parseFloat(number) ? "active" : "";
+
   return (
-    <div className="episode-item">
-      <span className="number">1</span>
+    <div className={`episode-item ${curActivePage}`} onClick={() => navigate(`/streaming/${linkVideo}`)}>
+      <span className="number">{number}</span>
       <div className="group-label">
         <p className="label">Episode</p>
-        <span className="label-number">1</span>
+        <span className="label-number">{number}</span>
       </div>
     </div>
   );

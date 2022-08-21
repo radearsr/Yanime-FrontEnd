@@ -6,7 +6,7 @@
   padding: 0 .5rem;
 }
 
-.title {
+.title-episode-list {
   font-size: 2rem;
   text-align: center;
   font-weight: bold;
@@ -31,7 +31,7 @@
     overflow-y: auto;
   }
 
-  .title {
-    font-size: 1.8rem;
+  .title-episode-list {
+    font-size: 1.5rem;
   }
 }
