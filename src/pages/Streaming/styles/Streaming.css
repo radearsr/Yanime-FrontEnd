@@ -2,6 +2,11 @@
   padding: 0 !important;
 }
 
+.video-wrapper{
+  position: sticky;
+  top: 0;
+}
+
 .eps-section {
   padding: 0 .5rem;
 }
@@ -21,6 +26,8 @@
 
 .button-group {
   margin-top: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .btn-home {

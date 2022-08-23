@@ -1,4 +1,4 @@
-import React, {  useEffect, useState } from "react";
+import React, {  useEffect, useState, useRef } from "react";
 import ReactPlayer from "react-player";
 import { useParams } from "react-router";
 import { Container, Row, Col, Button } from "react-bootstrap";
@@ -11,7 +11,11 @@ import {
 } from "../../components/Atoms";
 import {
   useNavigate
-} from "react-router-dom"
+} from "react-router-dom";
+import {
+  saveHistory,
+  loadDataHistoriesFromStorate,
+} from "../../services/storageServices";
 
 const Streaming = () => {
   const navigate = useNavigate();
@@ -25,7 +29,29 @@ const Streaming = () => {
     return type === "movie" ? 
       title.split(" ").join("-").toLowerCase() :
       `${title.split(" ").join("-").toLowerCase()}-eps-${episode}`;
-  }
+  };
+
+  const playerEl = useRef(null);
+
+  const getVideoDetails = () => {
+    const totalDuration = playerEl.current.getDuration();
+    const currentDuration = playerEl.current.getCurrentTime();
+    const animeTitle = animes[0].title;
+    const totalEps = animes[0].episodes.length;
+    const animePoster = animes[0].poster;
+    const currentEps = parseFloat(activeEps);
+    const linkVideo = videoTitle;
+
+    saveHistory({
+      animeTitle,
+      totalEps,
+      currentEps,
+      totalDuration,
+      currentDuration,
+      linkVideo,
+      animePoster,
+    });
+  };
 
   useEffect(() => {
     getDetailAnime(setAnimes, videoTitle);
@@ -39,9 +65,12 @@ const Streaming = () => {
           <Col xs={12} lg={9} className="g-0">
             <div className="video-wrapper">
               <ReactPlayer 
+                ref={playerEl}
                 width={"100%"}
                 height={"100%"}
                 url={`${BASE_URL}/api/video/${videoTitle}`}
+                onPlay={() => getVideoDetails()}
+                onPause={() => getVideoDetails()}
                 controls
               />
             </div>
@@ -49,8 +78,6 @@ const Streaming = () => {
           <Col xs={12} lg={3} className="eps-section">
             <h3 className="title-episode-list">Daftar Episode</h3>
             <div className="episode-list">
-                {console.log(anime)}
-                {console.log(activeEps)}
                 {anime.episodes.map((eps, index) => (
                   <EpisodeItem
                     key={index}
@@ -63,14 +90,16 @@ const Streaming = () => {
           </Col>
         </Row>
         <div className="button-group">
-          <Row className="justify-content-md-between justify-content-center">
-            <Col xs={10} md={5}>
-              <button className="btn btn-home" onClick={() => navigate("/")}>Home</button>
-            </Col>
-            <Col xs={10} md={5}>
-              <button className="btn btn-search" onClick={() => navigate("/search")}>Search</button>
-            </Col>
-          </Row>
+          <Container>
+            <Row className="justify-content-md-between justify-content-center">
+              <Col xs={10} md={4}>
+                <button className="btn btn-home" onClick={() => navigate("/")}>Home</button>
+              </Col>
+              <Col xs={10} md={4}>
+                <button className="btn btn-search" onClick={() => navigate("/search")}>Search</button>
+              </Col>
+            </Row>
+          </Container>
         </div>
         <AboutAnime text={anime.description} />
       </Container>

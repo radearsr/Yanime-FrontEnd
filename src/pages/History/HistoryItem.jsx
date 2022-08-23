@@ -19,7 +19,7 @@ const HistoryItem = (props) => {
 
   return (
     <div className="wrapper-history-item d-flex align-items-center justify-content-between">
-      <div className="wrapper-content-history d-flex" onClick={() => navigate("/")}>
+      <div className="wrapper-content-history d-flex" onClick={() => navigate(`/streaming/${props.linkVideo}`)}>
         <LabelThumbnail srcImg={props.thumbImg} alter={props.title} />
         <div className="about-history">
           <LabelTitle text={props.title} />
