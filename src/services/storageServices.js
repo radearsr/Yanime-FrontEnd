@@ -41,8 +41,24 @@ const saveHistory = (animeData) => {
 
 };
 
+const removeDataFromStorage = (titleAnime) => {
+  const dataHistories = loadDataHistoriesFromStorage();
+
+  let idxToRem;
+
+  dataHistories.forEach((dataHistory, index) => {
+    if (dataHistory.animeTitle.toLowerCase().includes(titleAnime.toLowerCase())) {
+      idxToRem = index;
+    }
+  });
+
+  dataHistories.splice(idxToRem, 1);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(dataHistories));
+};
+
 
 export {
   saveHistory,
   loadDataHistoriesFromStorage,
-};
+  removeDataFromStorage,
+};  

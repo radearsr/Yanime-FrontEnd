@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import {
   Container,
   Row,
@@ -13,26 +13,29 @@ import {
 } from "../../services/storageServices";
 
 const History = () => {
-
-  const dataHistories = loadDataHistoriesFromStorage();
-
+  const [dataHistories, setDataHistories] = useState(loadDataHistoriesFromStorage());
+  
   const addLeadingZeros = (num, totalLength) => {
     return String(num).padStart(totalLength, "0");
   }
 
   const reformatTime = (seconds) => {
     let secondLeft = Math.floor(seconds);
-
+    
     const hours = addLeadingZeros(Math.floor(secondLeft / 3600), 2);
     secondLeft = seconds % 3600;
-
+    
     const mins = addLeadingZeros(Math.floor(secondLeft / 60), 2);
     secondLeft = addLeadingZeros(Math.floor(secondLeft % 60), 2);
-
+    
     if (hours < 1) {
       return `${mins}:${secondLeft}`;
     }
     return `${hours}:${mins}:${secondLeft}`;
+  };
+
+  const handleRemoveHistories = () => {
+    setDataHistories(loadDataHistoriesFromStorage());
   };
   
   return (
@@ -51,6 +54,7 @@ const History = () => {
                   currDuration={reformatTime(dataHistori.currentDuration)}
                   currEps={dataHistori.currentEps}
                   totalDuration={reformatTime(dataHistori.totalDuration)}
+                  onRemove={handleRemoveHistories}
                 />
             </Col>
             </Row>

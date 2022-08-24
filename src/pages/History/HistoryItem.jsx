@@ -10,12 +10,20 @@ import {
   LabelTitle,
   LabelText,
 } from "../../components/Atoms";
+import {
+  removeDataFromStorage,
+} from "../../services/storageServices";
 import "./styles/historyItem.css";
 
 
 const HistoryItem = (props) => {
 
   const navigate = useNavigate();
+
+  const handleRemoveHistory = () => {
+    removeDataFromStorage(props.title);
+    props.onRemove(); 
+  };
 
   return (
     <div className="wrapper-history-item d-flex align-items-center justify-content-between">
@@ -27,7 +35,7 @@ const HistoryItem = (props) => {
           <LabelText text={`${props.currDuration} / ${props.totalDuration}`} />
         </div>
       </div>
-      <div className="action-history" onClick={() => navigate("/search")}>
+      <div className="action-history" onClick={handleRemoveHistory}>
         <Trash size={30} />
       </div>
     </div>
