@@ -4,9 +4,19 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "./styles/ContentList.css";
 import { getAllAnimeByCategory } from "../../api/Functions";
+import {
+  loadDataHistoriesFromStorage,
+} from "../../services/storageServices";
 
 const ContentList = (props) => {
   const [animes, setAnimes] = useState([]);
+
+  const generateLinkStreaming = (animeTitle, animeType) => {
+    const dataHistories = loadDataHistoriesFromStorage();
+    const animeKeyword = animeTitle.toLowerCase();
+    const filteredData = dataHistories.filter((dataHistory) => (dataHistory.animeTitle.toLowerCase().includes(animeKeyword)));
+    return filteredData.length > 0 ? `${filteredData[0].linkVideo}` : `${animeTitle.split(" ").join("-").toLowerCase()}${animeType === "series" ? "-eps-1" : ""}`; 
+  }
 
   useEffect(() => {
     getAllAnimeByCategory(setAnimes, props.category);
@@ -17,7 +27,7 @@ const ContentList = (props) => {
       <Container>
         <header>
           <h1 className="section-title">{props.titleContentList}</h1>
-          <a href={"/"} className="link-more">
+          <a href={"/streaming/"} className="link-more">
             Lebih banyak
           </a>
         </header>
@@ -40,7 +50,7 @@ const ContentList = (props) => {
             {animes.map((anime, index) => (
               <SwiperSlide key={index}>
                 <a 
-                  href={`/streaming/${anime.title.split(" ").join("-").toLowerCase()}${anime.type === "series" ? "-eps-1" : ""}`}
+                  href={`/streaming/${generateLinkStreaming(anime.title, anime.type)}`}
                   className="content-item"
                 >
                   <div className="poster-content-item d-flex">

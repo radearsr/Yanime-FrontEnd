@@ -30,10 +30,9 @@ const ResultList = () => {
   return (
     <Container className="content-list" fluid="lg">
       {animes.map((anime, index) => (
-        <Row className="justify-content-center mb-2 mb-md-3 mb-lg-4">
+        <Row className="justify-content-center mb-2 mb-md-3 mb-lg-4" key={index}>
           <Col xs={12} md={10} lg={8}>
             <SearchResult
-              key={index}
               linkVideo={generateLink(anime.title, anime.type)}
               srcThumb={anime.poster}
               title={anime.title}

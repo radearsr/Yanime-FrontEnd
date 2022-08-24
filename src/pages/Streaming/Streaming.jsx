@@ -10,11 +10,10 @@ import {
   AboutAnime,
 } from "../../components/Atoms";
 import {
-  useNavigate
+  useNavigate,
 } from "react-router-dom";
 import {
   saveHistory,
-  loadDataHistoriesFromStorate,
 } from "../../services/storageServices";
 
 const Streaming = () => {
@@ -55,8 +54,8 @@ const Streaming = () => {
 
   useEffect(() => {
     getDetailAnime(setAnimes, videoTitle);
-  }, []);
 
+  }, []);
 
   return (
     animes.map((anime, index) => (
@@ -93,7 +92,7 @@ const Streaming = () => {
           <Container>
             <Row className="justify-content-md-between justify-content-center">
               <Col xs={10} md={4}>
-                <button className="btn btn-home" onClick={() => navigate("/")}>Home</button>
+                <button className="btn btn-home" onClick={() => history.push("/")}>Home</button>
               </Col>
               <Col xs={10} md={4}>
                 <button className="btn btn-search" onClick={() => navigate("/search")}>Search</button>
