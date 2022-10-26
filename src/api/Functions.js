@@ -1,11 +1,10 @@
-const BASE_URL = "https://first-server-uqgwz.run-us-west2.goorm.io";
+const BASE_URL = "http://47.254.251.95:5000";
 
 const getAllAnime = async (setState) => {
   try{
     const response = await fetch(`${BASE_URL}/api/animes`);
     const results = await response.json();
-    console.log(results);
-    setState(results.data);
+    setState(results.data.animes);
   } catch(error) {
     console.log(error);
   }
@@ -13,30 +12,30 @@ const getAllAnime = async (setState) => {
 
 const getAllAnimeByCategory = async (setState, category) => {
   try{
-    const response = await fetch(`${BASE_URL}/api/animes?category=${category}`);
+    const response = await fetch(`${BASE_URL}/api/animes?type=${category}&limit=10`);
     const results = await response.json();
-    setState(results.data);
+    setState(results.data.animes);
   } catch(error) {
     console.log(error);
   }
 };
 
-const getAllAnimeBySearch = async (setState, query) => {
+const getAllAnimeBySearch = async (setState, query, page) => {
   try {
-    const response = await fetch(`${BASE_URL}/api/anime/search?query=${query}`);
+    const response = await fetch(`${BASE_URL}/api/animes/search?q=${query}&page=${page}&perpage=4`);
     const results = await response.json();
-    setState(results.data);
+    setState(results.data.animes);
   } catch(error) {
     console.log(error);
   }
-}
+};
 
-const getDetailAnime = async (setState, titleAnime) => {
+const getDetailAnime = async (setState, videoIdentity) => {
   try{
-    const response = await fetch(`${BASE_URL}/api/anime/${titleAnime}`);
-    console.log((`${BASE_URL}/api/anime/${titleAnime}`));
+    const response = await fetch(`${BASE_URL}/api/animes/${videoIdentity}/details`);
     const results = await response.json();
-    setState([results.data]);
+    setState([results.data.details]);
+    console.log([results.data.details]);
   } catch(error) {  
     console.log(error);
   }

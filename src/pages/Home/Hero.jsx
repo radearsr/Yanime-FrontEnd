@@ -1,38 +1,35 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { Carousel } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 import SlideItem from "./SlideItem";
+import {
+  loadDataHistoriesFromStorage,
+} from "../../services/storageServices";
 
-const Hero = () => {
+const Hero = ({animes}) => {  
+  const generateLink = (titleAnime, typeAnime, idAnime, epsAnime=1) => {
+    const histories = loadDataHistoriesFromStorage();
+    const filteredHistories = histories.filter((history) => history.identity === idAnime);
+    if (filteredHistories.length > 0) {
+      titleAnime = filteredHistories[0].title;
+      typeAnime = filteredHistories[0].type;
+      epsAnime = filteredHistories[0].currentEpisode;
+    }
+    return `${titleAnime.split(" ").join("-").toLowerCase()}${typeAnime === "series" ? `-eps-${epsAnime}` : ""}`;
+  };
+
   return (
     <Carousel controls={false} indicators={false}>
-      <Carousel.Item>
-        <SlideItem
-          posterUrl="/assets/images/poster1.jpg"
-          description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos atque
-dolor excepturi aperiam, facere quae ducimus! Quos iusto laborum
-explicabo ipsa quod animi earum delectus quibusdam amet Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos atque dolor excepturi aperiam, facere quae ducimus! Quos iusto laborum explicabo ipsa quod animi earum delectus quibusdam amet Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos atque dolor excepturi aperiam, facere quae ducimus! Quos iusto laborum explicabo ipsa quod animi earum delectus quibusdam amet Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos atque dolor excepturi aperiam, facere quae ducimus! Quos iusto laborum explicabo ipsa quod animi earum delectus quibusdam amet"
-          title="Lorem lorem oipsum oposim hpusum Lorem lorem oipsum oposim hpusumLorem lorem oipsum oposim hpusum Lorem lorem oipsum oposim hpusum Lorem lorem oipsum oposim hpusum"
-        />
-      </Carousel.Item>
-      <Carousel.Item>
-        <SlideItem
-          posterUrl="/assets/images/poster2.jpg"
-          description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos atque
-dolor excepturi aperiam, facere quae ducimus! Quos iusto laborum
-explicabo ipsa quod animi earum delectus quibusdam amet Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos atque dolor excepturi aperiam, facere quae ducimus! Quos iusto laborum explicabo ipsa quod animi earum delectus quibusdam amet Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos atque dolor excepturi aperiam, facere quae ducimus! Quos iusto laborum explicabo ipsa quod animi earum delectus quibusdam amet Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos atque dolor excepturi aperiam, facere quae ducimus! Quos iusto laborum explicabo ipsa quod animi earum delectus quibusdam amet"
-          title="Lorem lorem oipsum oposim hpusum Lorem lorem oipsum oposim hpusumLorem lorem oipsum oposim hpusum Lorem lorem oipsum oposim hpusum Lorem lorem oipsum oposim hpusum"
-        />
-      </Carousel.Item>
-      <Carousel.Item>
-        <SlideItem
-          posterUrl="/assets/images/poster3.jpg"
-          description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos atque
-dolor excepturi aperiam, facere quae ducimus! Quos iusto laborum
-explicabo ipsa quod animi earum delectus quibusdam amet Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos atque dolor excepturi aperiam, facere quae ducimus! Quos iusto laborum explicabo ipsa quod animi earum delectus quibusdam amet Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos atque dolor excepturi aperiam, facere quae ducimus! Quos iusto laborum explicabo ipsa quod animi earum delectus quibusdam amet Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos atque dolor excepturi aperiam, facere quae ducimus! Quos iusto laborum explicabo ipsa quod animi earum delectus quibusdam amet"
-          title="Lorem lorem oipsum oposim hpusum Lorem lorem oipsum oposim hpusumLorem lorem oipsum oposim hpusum Lorem lorem oipsum oposim hpusum Lorem lorem oipsum oposim hpusum"
-        />
-      </Carousel.Item>
+      {animes.map((anime) => (
+        <Carousel.Item>
+          <SlideItem
+            linkWatch={generateLink(anime.title, anime.type, anime.id)}
+            posterUrl={anime.poster}
+            description={anime.descriptions}
+            title={anime.title}
+          />
+        </Carousel.Item>
+      ))}
     </Carousel>
   );
 };

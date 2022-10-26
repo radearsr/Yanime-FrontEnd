@@ -25,7 +25,7 @@ const DesktopNav = (props) => {
   return (
     <Navbar className={`${props.navbar} fixed-top`} variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand onClick={() => navigate("/")}>Yapro</Navbar.Brand>
+        <Navbar.Brand onClick={() => navigate("/")}>DEYAPRO</Navbar.Brand>
         <Nav className="me-auto">
           <Nav.Link
             onClick={() => navigate("/")}

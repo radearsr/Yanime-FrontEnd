@@ -7,8 +7,8 @@ const SlideItem = (props) => {
   return (
     <Row
       className="slide-item p-3 justify-content-between g-0"
-      style={{ backgroundImage: `url('${props.posterUrl}')` }}
     >
+      <div className="bg-poster" style={{ backgroundImage: `url('${props.posterUrl}')` }}></div>
       <Col xs={3} className="poster">
         <img src={props.posterUrl} alt={props.title} className="img-fluid" />
       </Col>

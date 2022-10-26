@@ -19,6 +19,10 @@ const History = () => {
     return String(num).padStart(totalLength, "0");
   }
 
+  const generateLink = ({identity, title, type, currentEpisode}) => {
+    return `${identity}/${title.split(" ").join("-").toLowerCase()}${type === "series" ? `-eps-${currentEpisode}` : ""}`;
+  };
+
   const reformatTime = (seconds) => {
     let secondLeft = Math.floor(seconds);
     
@@ -47,14 +51,15 @@ const History = () => {
             <Row className="justify-content-center mb-2 mb-md-3 mb-lg-4">
               <Col xs={12} md={10} lg={8}>
                 <HistoryItem  
-                  linkVideo={dataHistori.linkVideo}
-                  title={dataHistori.animeTitle}
-                  thumbImg={dataHistori.animePoster}
-                  totalEps={dataHistori.totalEps}
+                  linkVideo={generateLink(dataHistori)}
+                  title={dataHistori.title}
+                  thumbImg={dataHistori.poster}
+                  totalEps={dataHistori.totalEpisode}
                   currDuration={reformatTime(dataHistori.currentDuration)}
-                  currEps={dataHistori.currentEps}
+                  currEps={dataHistori.currentEpisode}
                   totalDuration={reformatTime(dataHistori.totalDuration)}
                   onRemove={handleRemoveHistories}
+                  identity={dataHistori.identity}
                 />
             </Col>
             </Row>

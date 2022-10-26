@@ -1,11 +1,21 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/SearchNav.css";
 
 const NavSearch = (props) => {
+  const navigate = useNavigate();
+
+  const formHandler = (e) => {
+    e.preventDefault();
+    const inputValue = e.target.firstChild.firstChild.firstChild.value;
+    console.log(inputValue);
+    navigate(`/search?q=${inputValue}`);  
+  };
+
   return (
-    <form className={`${props.responsive} search-group g-0`} action="/search" method="GET">
+    <form className={`${props.responsive} search-group g-0`} onSubmit={formHandler}>
       <Row className="g-0">
         <Col xs={9} md={10}>
           <input

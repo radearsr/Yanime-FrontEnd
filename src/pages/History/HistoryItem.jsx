@@ -21,8 +21,8 @@ const HistoryItem = (props) => {
   const navigate = useNavigate();
 
   const handleRemoveHistory = () => {
-    removeDataFromStorage(props.title);
-    props.onRemove(); 
+    removeDataFromStorage(props.identity);
+    props.onRemove();
   };
 
   return (

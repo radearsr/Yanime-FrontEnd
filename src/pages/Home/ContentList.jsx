@@ -1,35 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Container } from "react-bootstrap";
+import {
+  useNavigate
+} from "react-router";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "./styles/ContentList.css";
-import { getAllAnimeByCategory } from "../../api/Functions";
+import {
+  AnimeItem
+} from "../../components/Atoms";
 import {
   loadDataHistoriesFromStorage,
 } from "../../services/storageServices";
 
-const ContentList = (props) => {
-  const [animes, setAnimes] = useState([]);
 
-  const generateLinkStreaming = (animeTitle, animeType) => {
-    const dataHistories = loadDataHistoriesFromStorage();
-    const animeKeyword = animeTitle.toLowerCase();
-    const filteredData = dataHistories.filter((dataHistory) => (dataHistory.animeTitle.toLowerCase().includes(animeKeyword)));
-    return filteredData.length > 0 ? `${filteredData[0].linkVideo}` : `${animeTitle.split(" ").join("-").toLowerCase()}${animeType === "series" ? "-eps-1" : ""}`; 
-  }
+const ContentList = ({animes, titleContentList}) => {
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    getAllAnimeByCategory(setAnimes, props.category);
-  }, []);
+  const generateLink = (titleAnime, typeAnime, idAnime, epsAnime=1) => {
+    const histories = loadDataHistoriesFromStorage();
+    const filteredHistories = histories.filter((history) => history.identity === idAnime);
+    if (filteredHistories.length > 0) {
+      titleAnime = filteredHistories[0].title;
+      typeAnime = filteredHistories[0].type;
+      epsAnime = filteredHistories[0].currentEpisode;
+    }
+    return `${titleAnime.split(" ").join("-").toLowerCase()}${typeAnime === "series" ? `-eps-${epsAnime}` : ""}`;
+  };
 
   return (
     <div className="list-wrapper">
       <Container>
         <header>
-          <h1 className="section-title">{props.titleContentList}</h1>
-          <a href={"/streaming/"} className="link-more">
+          <h1 className="section-title">{titleContentList}</h1>
+          <p className="link-more" onClick={() => navigate(`/animes/${titleContentList.toLowerCase()}`)}>
             Lebih banyak
-          </a>
+          </p>
         </header>
         <main>
           <Swiper
@@ -37,8 +43,16 @@ const ContentList = (props) => {
             slidesPerView={3}
             spaceBetween={10}
             breakpoints={{
-              992: {
+              1400: {
                 slidesPerView: 7,
+                spaceBetween: 20,
+              },
+              1200: {
+                slidesPerView: 6,
+                spaceBetween: 20,
+              },
+              992: {
+                slidesPerView: 5,
                 spaceBetween: 20,
               },
               768: {
@@ -49,19 +63,13 @@ const ContentList = (props) => {
           > 
             {animes.map((anime, index) => (
               <SwiperSlide key={index}>
-                <a 
-                  href={`/streaming/${generateLinkStreaming(anime.title, anime.type)}`}
-                  className="content-item"
-                >
-                  <div className="poster-content-item d-flex">
-                    <img
-                      src={anime.poster}
-                      alt={anime.title}
-                      className="img-fluid"
-                    />
-                  </div>
-                  <p className="anime-title">{anime.title}</p>
-                </a>
+                <AnimeItem 
+                  key={index}
+                  idAnime={anime.id}
+                  poster={anime.poster}
+                  title={anime.title}
+                  linkEps={generateLink(anime.title, anime.type, anime.id)}
+                />
               </SwiperSlide>
             ))}
           </Swiper>

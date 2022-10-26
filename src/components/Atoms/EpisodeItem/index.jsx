@@ -11,6 +11,7 @@ const EpisodeItem = ({number, linkVideo, activePage}) => {
   useEffect(() => {
     if (epsRef.current != null) {
       epsRef.current.scrollIntoView({ behavior: "smooth" });
+      console.log(epsRef);
     }
   });
 

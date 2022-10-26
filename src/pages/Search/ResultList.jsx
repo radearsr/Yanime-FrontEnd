@@ -8,24 +8,20 @@ import SearchResult from "./SearchResult";
 import { useSearchParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/ResultList.css";
-import { getAllAnime, getAllAnimeBySearch } from "../../api/Functions";
+import { getAllAnimeBySearch } from "../../api/Functions";
 
 const ResultList = () => {
   const [animes, setAnimes] = useState([]);
   const [searchParams] = useSearchParams();
-  const query = searchParams.get("query");
+  const keyword = searchParams.get("q");
 
   const generateLink = (titleAnime, typeAnime) => {
     return `${titleAnime.split(" ").join("-").toLowerCase()}${typeAnime === "series" ? "-eps-1" : ""}`;
   };
 
   useEffect(() => {
-    if (query !== null) {
-      getAllAnimeBySearch(setAnimes, query);
-    } else {
-      getAllAnime(setAnimes);
-    }
-  }, []);
+    getAllAnimeBySearch(setAnimes, keyword, 1);
+  }, [keyword]);
 
   return (
     <Container className="content-list" fluid="lg">
@@ -37,7 +33,7 @@ const ResultList = () => {
               srcThumb={anime.poster}
               title={anime.title}
               genre={anime.genre}
-              type={anime.type === "series" ? anime.episodes.length + " Episode" : "Movie"}
+              type={anime.type === "series" ? `${anime.episode} Episode` : "Movie"}
             />
           </Col>
         </Row>

@@ -1,6 +1,6 @@
 .wrapper-about-anime{
   margin-top: 1.5rem;
-  /* padding: 0 .2rem; */
+  padding: 1rem .2rem;
 }
 
 .title-sin, .text-sin{
@@ -19,7 +19,7 @@
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  max-height: max-content;
+  min-height: max-content;
   overflow: hidden;
   transition: .3s;
   color: var(--black);
@@ -34,12 +34,14 @@
 
 .see-more {
   display: block;
-  text-align: center;
-  font-size: 1rem;
+  font-size: .8rem;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
-.see-shadow {
-  box-shadow: 0px -10px 25px 0px rgb(0, 0, 0);
+.see-more:hover {
+  text-decoration: none;
 }
 
 .d-none {

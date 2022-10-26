@@ -4,6 +4,7 @@ import LabelTitle from "./LabelTitle";
 import LabelBadge from "./LabelBadge";
 import EpisodeItem from "./EpisodeItem";
 import AboutAnime from "./AboutAnime";
+import AnimeItem from "./AnimeItem";
 
 export {
   LabelText,
@@ -12,4 +13,5 @@ export {
   LabelBadge,
   EpisodeItem,
   AboutAnime,
+  AnimeItem,
 };
