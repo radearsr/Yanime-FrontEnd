@@ -6,9 +6,10 @@ nav.navbar.nav-show-more {
 .show-more-title {
   text-transform: capitalize;
   margin: 0;
-  font-size: 1.8rem;
+  font-size: 1rem;
   font-weight: bold;
   color: var(--black);
+  width: max-content;
 }
 
 .show-more {
@@ -16,6 +17,11 @@ nav.navbar.nav-show-more {
   grid-template-columns: repeat(3, auto);
   column-gap: 0.5rem;
   row-gap: 0.5rem;
+}
+
+.skeleton-show-more {
+  display: flex;
+  flex-direction: column;
 }
 
 @media(min-width: 576px) {

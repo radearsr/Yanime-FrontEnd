@@ -45,25 +45,25 @@ const History = () => {
   return (
     <Fragment>
       <DesktopNav navbar="bg-orange" search="input-search scrolled" />
-      <Container fluid="lg" className="pt-2">
+      <Container fluid="fluid" className="pt-2">
         <div className="wrapper-history">
+          <Row className="justify-content-center mb-2 mb-md-3 mb-lg-4">
           {dataHistories.map((dataHistori) => (
-            <Row className="justify-content-center mb-2 mb-md-3 mb-lg-4">
-              <Col xs={12} md={10} lg={8}>
-                <HistoryItem  
-                  linkVideo={generateLink(dataHistori)}
-                  title={dataHistori.title}
-                  thumbImg={dataHistori.poster}
-                  totalEps={dataHistori.totalEpisode}
-                  currDuration={reformatTime(dataHistori.currentDuration)}
-                  currEps={dataHistori.currentEpisode}
-                  totalDuration={reformatTime(dataHistori.totalDuration)}
-                  onRemove={handleRemoveHistories}
-                  identity={dataHistori.identity}
-                />
+            <Col xs={12} md={6} xl={4} className="mb-3">
+              <HistoryItem  
+                linkVideo={generateLink(dataHistori)}
+                title={dataHistori.title}
+                thumbImg={dataHistori.poster}
+                totalEps={dataHistori.totalEpisode}
+                currDuration={reformatTime(dataHistori.currentDuration)}
+                currEps={dataHistori.currentEpisode}
+                totalDuration={reformatTime(dataHistori.totalDuration)}
+                onRemove={handleRemoveHistories}
+                identity={dataHistori.identity}
+              />
             </Col>
-            </Row>
           ))}
+          </Row>
         </div>
       </Container>
       <MobileNav />

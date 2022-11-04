@@ -1,6 +1,6 @@
 .label-text {
   margin: 0;
-  font-size: 0.6rem;
+  font-size: .6rem;
   color: var(--black);
   min-height: max-content;
   max-height: 1.8rem;

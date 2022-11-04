@@ -16,8 +16,7 @@
 .anime-title {
   font-weight: 500;
   font-size: 0.8rem;
-  text-align: justify;
-  word-break: break-all;
+  text-align: left;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;

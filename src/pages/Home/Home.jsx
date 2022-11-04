@@ -15,9 +15,9 @@ const Home = () => {
   const [animeMovies, setAnimeMovies] = useState([]);
   const [animeBanner, setAnimeBanner] = useState([]);
 
-  const [isLoadingMovie, setIsLoadingMovie] = useState(false);
-  const [isLoadingSeries, setIsLoadingSeries] = useState(false);
-  const [isLoadingBanner, setIsLoadingBanner] = useState(false);
+  const [isLoadingMovie, setIsLoadingMovie] = useState(true);
+  const [isLoadingSeries, setIsLoadingSeries] = useState(true);
+  const [isLoadingBanner, setIsLoadingBanner] = useState(true);
 
   const handleNavbar = (e) => {
     const window = e.currentTarget;
@@ -38,7 +38,10 @@ const Home = () => {
   useEffect(() => {
     fetch(`${BASE_URL}/api/animes/5/carousel`)
     .then((response) => response.json())
-    .then((result) => setAnimeBanner(result.data.animes))
+    .then((result) => {
+      setAnimeBanner(result.data.animes);
+      return setIsLoadingBanner(false);
+    })
     .catch((error) => console.error(error)) 
    }, []);
 
@@ -46,8 +49,10 @@ const Home = () => {
     fetch(`${BASE_URL}/api/animes?type=movie&limit=10`)
     .then((response) => response.json())
     .then((result) => {
+      if (result.data.animes.length < 1) return setIsLoadingMovie(true);
       setIsLoadingMovie(false);
       return setAnimeMovies(result.data.animes)
+      
     })
     .catch((error) => {
       console.error(error);

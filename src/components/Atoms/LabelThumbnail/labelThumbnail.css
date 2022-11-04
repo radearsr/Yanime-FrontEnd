@@ -1,19 +1,24 @@
-.thumb-img {
+.thumb-img, .wrapper-thumb-img {
   object-fit: cover;
   width: 5rem;
   height: 7rem;
   border-radius: 1rem;
+  transition: .5s;
+}
+
+.wrapper-thumb-img{
+  overflow: hidden;
 }
 
 @media (min-width: 768px) {
-  .thumb-img {
+  .thumb-img, .wrapper-thumb-img {
     width: 8rem;
     height: 12rem;
   }
 }
 
 @media (min-width: 992px) {
-  .thumb-img {
+  .thumb-img, .wrapper-thumb-img {
     width: 10rem;
     height: 14rem;
   }

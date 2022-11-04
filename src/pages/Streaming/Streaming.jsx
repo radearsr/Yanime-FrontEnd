@@ -20,11 +20,13 @@ import {
   saveHistory,
   searchDataHistory
 } from "../../services/storageServices";
+import SkeletonVideoPlayer from "./SkeletonVideoPlayer";
 
 const Streaming = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const videoPlayer = useRef(null);
+  const epsListContainer = useRef(null);
 
   const { animeId } = useParams();
 
@@ -32,6 +34,8 @@ const Streaming = () => {
   const [,,,urlEpisode] = pathname.split("/");
 
   const [animes, setAnimes] = useState([]);
+
+  const [videoIsLoading, setVideoIsLoading] = useState(true);
 
   const activeEps = urlEpisode.includes("eps") ? urlEpisode.split("-")[urlEpisode.split("-").length - 1] : "1";
 
@@ -93,6 +97,10 @@ const Streaming = () => {
     }
   }, [animes, animeId, urlEpisode]);
 
+  useEffect(() => {
+    epsListContainer.current.scrollTo(0, 100);
+  });
+
 
   return (
     animes.map((anime, index) => (
@@ -113,22 +121,25 @@ const Streaming = () => {
           <Row className="g-0 justify-content-between mb-4">
             <Col xs={12} lg={9} className="g-0">
               <div className="video-wrapper">
-                <ReactPlayer 
-                  ref={videoPlayer}
-                  width={"100%"}
-                  height={"100%"}
-                  url={anime.videos[0].gdrive}
-                  onPlay={() => setVideoDetailsToLocalStorage(anime, activeEpisode(urlEpisode), 1)}
-                  onPause={() => setVideoDetailsToLocalStorage(anime, activeEpisode(urlEpisode), 1)}
-                  onStart={() => handleStartVideoPlayer(anime.id)}
-                  playing
-                  controls
-                />
+                {
+                  <ReactPlayer 
+                    ref={videoPlayer}
+                    width={"100%"}
+                    height={"100%"}
+                    url={anime.videos[0].gdrive}
+                    onPlay={() => setVideoDetailsToLocalStorage(anime, activeEpisode(urlEpisode), 1)}
+                    onPause={() => setVideoDetailsToLocalStorage(anime, activeEpisode(urlEpisode), 1)}
+                    onStart={() => handleStartVideoPlayer(anime.id)}
+                    onReady={() => setVideoIsLoading(false)}
+                    playing
+                    controls
+                  />
+                }
               </div>
             </Col>
             <Col xs={12} lg={3} className="eps-section">
               <h3 className="title-episode-list">Daftar Episode</h3>
-              <div className="episode-list">
+              <div className="episode-list" ref={epsListContainer}>
                   {Array.apply(null, {length: anime.eps_count}).map((data, index) => (
                     <EpisodeItem
                       key={index}

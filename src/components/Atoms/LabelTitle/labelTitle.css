@@ -9,8 +9,7 @@
 
 .managed-text {
   letter-spacing: normal;
-  text-align: justify;
-  word-break: break-all;
+  text-align: left;
   word-spacing: normal;
   hyphens: auto;
   display: -webkit-box;
@@ -36,7 +35,7 @@
 
 @media (min-width: 992px) {
   .label-title {
-    font-size: 1.35rem;
+    font-size: 1.24rem;
     min-height: max-content;
     max-height: 3.4rem;
   }

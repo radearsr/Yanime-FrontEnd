@@ -36,7 +36,7 @@ const HistoryItem = (props) => {
         </div>
       </div>
       <div className="action-history" onClick={handleRemoveHistory}>
-        <Trash size={30} />
+        <Trash size={30} /> 
       </div>
     </div>
   );

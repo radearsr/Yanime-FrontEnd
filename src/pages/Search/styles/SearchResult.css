@@ -9,8 +9,13 @@
   padding-left: 0;
   gap: .5rem;
   border-radius: 1rem;
+  transition: .5s;
 }
 
+.wrapper-search-result:hover .thumb-img{
+  transform: scale(1.2);
+  transition: .5s;
+}
 
 @media (min-width: 768px) {
   .wrapper-search-result {
@@ -23,3 +28,5 @@
     height: 14rem;
   }
 }
+
+

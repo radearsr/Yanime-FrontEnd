@@ -9,6 +9,8 @@ const SkeletonList = ({count}) => {
     <div className="list-wrapper">
     <Container>
       <header>
+        <div className="skeleton skeleton-title"></div>
+        <div className="skeleton skeleton-more"></div>
       </header>
       <main>
         <Swiper
