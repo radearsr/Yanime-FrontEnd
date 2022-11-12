@@ -13,7 +13,7 @@ const SearchResult = ({linkVideo, srcThumb, title, genre, type}) => {
   const navigate = useNavigate();
 
   return (
-    <div className="wrapper-search-result d-flex" onClick={() => navigate(`/streaming/${linkVideo}`)}>
+    <div className="wrapper-search-result d-flex shadow-sm" onClick={() => navigate(`/streaming/${linkVideo}`)}>
       <LabelThumbnail srcImg={srcThumb} alter={title} />
       <div className="about-result">
         <LabelTitle text={title} />

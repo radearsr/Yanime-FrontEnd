@@ -28,7 +28,10 @@ const ShowMore = () => {
   useEffect(() => {
     fetch(`${BASE_URL}/api/animes?type=${type}&limit=30`)
     .then(response => response.json())
-    .then(result => setAnimes(result.data.animes))
+    .then(result => {
+      setAnimes(result.data.animes)
+      setIsLoading(false);
+    })
   },[type]);
 
 

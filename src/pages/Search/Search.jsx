@@ -20,6 +20,7 @@ const Search = () => {
     .then((response) => response.json())
     .then((result) => {
       setIsLoading(false);
+      console.log(result);
       return setAnimes((prev) => [...prev, ...result.data.animes])
     })
     .catch((error) => console.error(error));

@@ -98,8 +98,18 @@ const Streaming = () => {
   }, [animes, animeId, urlEpisode]);
 
   useEffect(() => {
-    epsListContainer.current.scrollTo(0, 100);
-  });
+    const doc = document.querySelector("#root > div.streaming-container.container > div.g-0.justify-content-between.mb-4.row > div.eps-section.col-lg-3.col-12 > div.episode-list");
+    if (doc != null) {
+      const active = doc.querySelector(".episode-item.active");
+      const y = active.offsetTop - (active.offsetHeight * 4);
+      const x = active.offsetLeft - (active.offsetWidth * 4)
+      doc.scrollTo({
+        top: y,
+        left: x,
+        behavior: "smooth"
+      });
+    }
+   });
 
 
   return (
